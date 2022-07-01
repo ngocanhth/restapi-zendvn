@@ -5,6 +5,9 @@
   "repository": "git@github.com:ngocanhth/restapi-zendvn.git",
   "author": "ngocanh <lengocanhxd@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
   "dependencies": {
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
