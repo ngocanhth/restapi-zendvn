@@ -6,7 +6,8 @@
   "author": "ngocanh <lengocanhxd@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon index.js",
+    "server": "nodemon server.js"
   },
   "dependencies": {
     "body-parser": "^1.20.0",
