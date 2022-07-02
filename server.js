@@ -1,8 +1,9 @@
 const express = require('express')
+const morgan = require("morgan");
 const app = express()
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+app.use(morgan("common"));
 
 const courses = [
     {
@@ -52,6 +53,25 @@ app.post('/api/courses/add', (req, res) => {
        res.send(JSON.stringify({
             success: true,
             notice: "Bạn đã thêm thành công",
+            data: courses
+       }))
+    }
+});
+
+// sua du lieu
+
+app.put('/api/courses/edit/:id', (req, res) => {
+    console.log(req.params.id);
+    const course = courses.find(course => course.id === parseInt(req.params.id));
+    if(!course) {
+        res.status(404).send('ID not found');
+    } else {
+        console.log(course);
+        course.name = req.body.name;
+        courses.push(course);
+        res.send(JSON.stringify({
+            success: true,
+            notice: "Bạn đã update thành công",
             data: courses
        }))
     }
